@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { useDebounce } from "use-debounce"
 import { usePrepareSendTransaction, useWaitForTransaction, useSendTransaction } from "wagmi"
 import { CONTRACT_ADDRESS } from "../constants.js"
 import { parseEther } from "viem"
 
-const add = () => {
-  const [amount, setAmount] = React.useState("")
+const Add = () => {
+  const [amount, setAmount] = useState("")
   const [debouncedAmount] = useDebounce(amount, 500)
   const { config } = usePrepareSendTransaction({
     to: CONTRACT_ADDRESS,
@@ -63,4 +63,4 @@ const add = () => {
   )
 }
 
-export default add
+export default Add

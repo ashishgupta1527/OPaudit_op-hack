@@ -1,13 +1,14 @@
 import Link from "next/link"
 import React from "react"
 
-const start = () => {
+const Start = () => {
   const lol = [1, 2, 3]
   return (
     <>
-      {lol.map(() => {
+      {lol.map((ele, idx) => {
         return (
           <Link
+            key={idx}
             className="max-w-3xl mx-auto p-4 border-2 rounded-md flex justify-between my-8"
             href={{ pathname: "/submit", query: { name: "0xfable" } }}
           >
@@ -55,4 +56,4 @@ const start = () => {
   )
 }
 
-export default start
+export default Start

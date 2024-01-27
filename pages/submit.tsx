@@ -1,7 +1,7 @@
 import { useSearchParams } from "next/navigation"
 import React from "react"
 
-const add = () => {
+const Submit = () => {
   const searchParams = useSearchParams()
   const name = searchParams.get("name")
   return (
@@ -26,4 +26,4 @@ const add = () => {
   )
 }
 
-export default add
+export default Submit
