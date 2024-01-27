@@ -77,8 +77,7 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
 
     function submitReport(
         uint256 projectId,
-        string calldata reportURI,
-        bytes memory data
+        string calldata reportURI
     ) external {
         CounterReportID++;
         uint256 newReportId = CounterReportID;
@@ -88,7 +87,7 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
         );
         // We cannot just use balanceOf to create the new tokenId because tokens
         // can be burned (destroyed), so we need a separate counter.
-        _mint(_msgSender(), projectId, 1, data);
+        _mint(_msgSender(), projectId, 1, "");
 
         reports[newReportId] = Report(
             projectId,
@@ -136,7 +135,6 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
 
     /** Getter Functions **/
 
-    /// @dev Returns the Uniform Resource Identifier (URI) for `tokenId` token.
     function uri(
         uint256 tokenId
     ) public view virtual override returns (string memory) {
@@ -156,14 +154,5 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
             "AuditReport : Asset cannot be transferred or destroyed!"
         );
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
-    }
-
-    /**
-     * @dev See {IERC165-supportsInterface}.
-     */
-    function supportsInterface(
-        bytes4 interfaceId
-    ) public view virtual override(ERC1155) returns (bool) {
-        return super.supportsInterface(interfaceId);
     }
 }
