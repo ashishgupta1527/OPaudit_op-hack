@@ -70,7 +70,14 @@ const Home: NextPage = () => {
                 >
                   1
                 </th>
-                <td className="px-6 py-4">aritra</td>
+                <td>
+                  <a
+                    className="px-6 py-4"
+                    href="https://optimism-sepolia.blockscout.com/token/0xe58BB03403Fa940Ae376A1829AC6B2F9765dFFDD?tab=holders"
+                  >
+                    aritra
+                  </a>
+                </td>
                 <td className="px-6 py-4">3</td>
                 <td className="px-6 py-4">10 OP</td>
               </tr>
@@ -81,7 +88,14 @@ const Home: NextPage = () => {
                 >
                   2
                 </th>
-                <td className="px-6 py-4">asshish</td>
+                <td>
+                  <a
+                    className="px-6 py-4"
+                    href="https://optimism-sepolia.blockscout.com/token/0xe58BB03403Fa940Ae376A1829AC6B2F9765dFFDD?tab=holders"
+                  >
+                    asshish
+                  </a>
+                </td>
                 <td className="px-6 py-4">7</td>
                 <td className="px-6 py-4">19 OP</td>
               </tr>
@@ -92,7 +106,14 @@ const Home: NextPage = () => {
                 >
                   3
                 </th>
-                <td className="px-6 py-4">manon</td>
+                <td>
+                  <a
+                    className="px-6 py-4"
+                    href="https://optimism-sepolia.blockscout.com/token/0xe58BB03403Fa940Ae376A1829AC6B2F9765dFFDD?tab=holders"
+                  >
+                    manon
+                  </a>
+                </td>
                 <td className="px-6 py-4">8</td>
                 <td className="px-6 py-4">56 OP</td>
               </tr>

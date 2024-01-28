@@ -8,6 +8,7 @@ const Header = () => {
       <h1 className="font-extrabold text-xl">
         <Link href="/">OPAudits</Link>
       </h1>
+      <Link href="/dashboard">Dashboard</Link>
       <ConnectButton />
     </div>
   )

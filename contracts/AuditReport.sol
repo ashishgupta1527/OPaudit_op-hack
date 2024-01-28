@@ -67,12 +67,12 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
         CounterProjectID++;
         uint256 newProjectId = CounterProjectID;
         projects[newProjectId] = Project(
-            _msgSender(),
+            msg.sender,
             metadataURI,
             prizePool,
             true
         );
-        emit ProjectRegistered(newProjectId, _msgSender(), prizePool);
+        emit ProjectRegistered(newProjectId, msg.sender, prizePool);
     }
 
     function submitReport(
@@ -87,18 +87,13 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
         );
         // We cannot just use balanceOf to create the new tokenId because tokens
         // can be burned (destroyed), so we need a separate counter.
-        _mint(_msgSender(), projectId, 1, "");
+        _mint(msg.sender, projectId, 1, "");
 
-        reports[newReportId] = Report(
-            projectId,
-            _msgSender(),
-            reportURI,
-            false
-        );
+        reports[newReportId] = Report(projectId, msg.sender, reportURI, false);
 
-        emit ReportSubmitted(newReportId, projectId, _msgSender(), reportURI);
+        emit ReportSubmitted(newReportId, projectId, msg.sender, reportURI);
 
-        emit NFTMinted(projectId, _msgSender());
+        emit NFTMinted(projectId, msg.sender);
     }
 
     function verifyReport(
@@ -139,20 +134,5 @@ contract AuditReport is Context, ERC1155Supply, ReentrancyGuard {
         uint256 tokenId
     ) public view virtual override returns (string memory) {
         return projects[tokenId].projectURI;
-    }
-
-    function _beforeTokenTransfer(
-        address operator,
-        address from,
-        address to,
-        uint256[] memory ids,
-        uint256[] memory amounts,
-        bytes memory data
-    ) internal virtual override(ERC1155Supply) {
-        require(
-            from == address(0) || to == address(0),
-            "AuditReport : Asset cannot be transferred or destroyed!"
-        );
-        super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 }
