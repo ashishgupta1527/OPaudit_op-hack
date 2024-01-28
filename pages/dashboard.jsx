@@ -11,10 +11,10 @@ const Dashboard = () => {
       <div
         // key={idx}
         className="flex justify-between"
-        href={{ pathname: "/submit", query: { name: "0xfable" } }}
+        // href={{ pathname: "/submit", query: { name: "0xfable" } }}
       >
         <div className="flex flex-col items-center justify-center">
-          <p className="mx-2">OxFable</p>
+          <p className="mx-2">Concrete</p>
           <p className="mx-2">Contributed by: asshish</p>
         </div>
         <div className="space-y-4">
@@ -24,7 +24,7 @@ const Dashboard = () => {
             class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1 text-center me-2 mb-2"
             onClick={(e) => {
               e.preventDefault()
-              location.href = "https://github.com"
+              location.href = "https://www.africau.edu/images/default/sample.pdf"
             }}
           >
             View PDF
@@ -48,7 +48,7 @@ const Dashboard = () => {
             type="button"
             class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1 text-center me-2 mb-2"
           >
-            Prize Pool: 69,420 OP
+            Prize Pool: 0.001 OP
           </button>
         </div>
       </div>
